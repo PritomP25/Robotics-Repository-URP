@@ -45,6 +45,28 @@
                             onclick="toggleSubMenu(this)"
                             class="dropbutton-btn"
                         >
+                            <span class="dropbutton-label">Introduction</span>
+                            <span
+                                class="material-symbols-outlined dropbutton-icon"
+                            >
+                                keyboard_arrow_down
+                            </span>
+                        </button>
+                        <ul class="sub-menu">
+                            <div>
+                                <li>
+                                    <a href="#" data-target="intro-notes"
+                                        >Important Notes</a
+                                    >
+                                </li>
+                            </div>
+                        </ul>
+                    </li>
+                    <li>
+                        <button
+                            onclick="toggleSubMenu(this)"
+                            class="dropbutton-btn"
+                        >
                             <span class="dropbutton-label">First Trial</span>
                             <span
                                 class="material-symbols-outlined dropbutton-icon"
@@ -221,6 +243,72 @@
                 </ul>
             </aside>
             <main>
+                <div id="intro-notes" class="content-container">
+                    <h2>Some Important Notes</h2>
+                    <ul>
+                        <li>
+                            Collision avoidance is not built-in by default.
+                            <b style="color: red">USE CAUTION</b> when moving
+                            joints. Self-collision may occur.
+                        </li>
+                        <li>
+                            During early testing, the servo for the gripper
+                            started feeling warm. Keep this in mind and shut
+                            down if it starts getting hot to the touch.
+                        </li>
+                        <li>
+                            The joint range is 0-180 degrees for each joint
+                            (except joint 5). The python module for controlling
+                            the servos may let you specify a number outside this
+                            range. However, if the joint angle is outside
+                            [0,180] degrees, the read function will return nil.
+                            Therefore, do not command the joints outside [0,180]
+                            degrees.
+                        </li>
+                        <li>
+                            Use caution when commanding near 0 or 180 degrees.
+                            Grav itational forces may result in an actual angle
+                            <0 or >180. This would make the read angle function
+                            return nil.
+                        </li>
+                        <li>
+                            Fast movements may produce forces which can dislodge
+                            the suction cups
+                        </li>
+                        <li>
+                            If running code or the app and the arm is not
+                            moving, turn it off and back on.
+                        </li>
+                        <li>
+                            If code is not running (JupyterLab may display I2C
+                            error), type into a terminal i2cdetect-r-y 1. You
+                            should see the number 15 in the matrix that appears
+                            (The main elements will be ’-’. You will also see a
+                            3c.). If you do not see 15, press the reset button
+                            on the expansion board (the large board on the
+                            bottom).
+                        </li>
+                    </ul>
+
+                    <h2>Starting Up</h2>
+                    <ul>
+                        <li>Ensure robot is plugged in.</li>
+                        <li>
+                            If accessing Dofbot’s internal computer directly,
+                            connect mouse, keyboard, and monitor.
+                        </li>
+                        <li>
+                            If using camera, remove cap.
+                            <b style="color: red"
+                                >Replace camera cap when done using arm.</b
+                            >
+                        </li>
+                        <li>
+                            Power switch is located on the bottom board, near
+                            the an tennas.
+                        </li>
+                    </ul>
+                </div>
                 <div id="precautions" class="content-container">
                     <h2>Precautions for DIY Robotic Arm</h2>
                     <p>
@@ -327,15 +415,15 @@
                             entering the DOFBOT's IP address followed by port
                             `888X` in your browser, where X is the group number.
 
-                            <br><br>
-                            For example, if you are using account group1, you can access
-                            Jupyter Lab through port 8881. For group2, it will be at
-                            8882, etc.
+                            <br /><br />
+                            For example, if you are using account group1, you
+                            can access Jupyter Lab through port 8881. For
+                            group2, it will be at 8882, etc.
 
-                            <br><br>
-                            The general access student account is accessible at port
-                            8880, and the admin jetson account is accessible at port
-                            8888.
+                            <br /><br />
+                            The general access student account is accessible at
+                            port 8880, and the admin jetson account is
+                            accessible at port 8888.
 
                             <ul>
                                 <li>
