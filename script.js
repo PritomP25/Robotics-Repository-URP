@@ -173,14 +173,30 @@ document.querySelectorAll("#sidebar a[data-target]").forEach((link) => {
         if (parentLi) {
             parentLi.classList.add("active");
         }
+        window.location.hash = '#' + targetId;
     });
 });
 
 // show first content section by default
 window.addEventListener("DOMContentLoaded", () => {
     const allSections = document.querySelectorAll(".content-container");
-    if (allSections.length > 0) {
-        allSections.forEach((div) => (div.style.display = "none"));
-        allSections[0].style.display = "block";
+    const hash = window.location.hash.slice(1);
+    if (hash) {
+        const targetDiv = document.getElementById(hash);
+        if (targetDiv) {
+            allSections.forEach((div) => (div.style.display = "none"));
+            targetDiv.style.display = "block";
+            // Set active class on sidebar link
+            const activeLink = document.querySelector(`#sidebar a[data-target="${hash}"]`);
+            if (activeLink) {
+                document.querySelectorAll("#sidebar ul li").forEach((li) => {
+                    li.classList.remove("active");
+                });
+                const parentLi = activeLink.closest("li");
+                if (parentLi) {
+                    parentLi.classList.add("active");
+                }
+            }
+        }
     }
 });
