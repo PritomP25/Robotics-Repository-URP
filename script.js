@@ -19,7 +19,7 @@ class THeader extends HTMLElement {
                 <ul class="nav-links">
                     <li>
                         <a href="index.html"
-                            ><img src="assests/images/logo-1.png" alt="logo" class="logo-img"
+                            ><img src="assets/images/logo-1.png" alt="logo" class="logo-img"
                         /></a>
                     </li>
                     <li class="hideOnMobile"><a href="index.html">Home</a></li>
