@@ -181,21 +181,25 @@ document.querySelectorAll("#sidebar a[data-target]").forEach((link) => {
 window.addEventListener("DOMContentLoaded", () => {
     const allSections = document.querySelectorAll(".content-container");
     const hash = window.location.hash.slice(1);
+    let targetDiv;
     if (hash) {
-        const targetDiv = document.getElementById(hash);
-        if (targetDiv) {
-            allSections.forEach((div) => (div.style.display = "none"));
-            targetDiv.style.display = "block";
-            // Set active class on sidebar link
-            const activeLink = document.querySelector(`#sidebar a[data-target="${hash}"]`);
-            if (activeLink) {
-                document.querySelectorAll("#sidebar ul li").forEach((li) => {
-                    li.classList.remove("active");
-                });
-                const parentLi = activeLink.closest("li");
-                if (parentLi) {
-                    parentLi.classList.add("active");
-                }
+        targetDiv = document.getElementById(hash);
+    }
+    else {
+        targetDiv = document.querySelector(".content-container");
+    }
+    if (targetDiv) {
+        allSections.forEach((div) => (div.style.display = "none"));
+        targetDiv.style.display = "block";
+        // Set active class on sidebar link
+        const activeLink = document.querySelector(`#sidebar a[data-target="${hash}"]`);
+        if (activeLink) {
+            document.querySelectorAll("#sidebar ul li").forEach((li) => {
+                li.classList.remove("active");
+            });
+            const parentLi = activeLink.closest("li");
+            if (parentLi) {
+                parentLi.classList.add("active");
             }
         }
     }
