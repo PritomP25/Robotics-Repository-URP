@@ -2461,30 +2461,19 @@
                 <!-- App section -->
                 <div id="app-control" class="content-container">
                     <h2>App Control for Dofbot</h2>
-                    <h3>Re-enable to turn on at startup:</h3>
+                    <h3>Turn on app control:</h3>
                     <div class="code-box">
                         <pre class="line-numbers">
                             <code class="language-bash">
-                                sudo systemctl restart yb-bigProgram.service
-                                sudo systemctl enable yb-bigProgram.service
+                                python3 ~/Desktop/Arm/YahboomArm.pyc
                             </code>
                         </pre>
                     </div>
-                    <h3>Close start-up program permanently:</h3>
+                    <h3>Turn off app control (in a new terminal):</h3>
                     <div class="code-box">
                         <pre class="line-numbers">
                             <code class="language-bash">
-                                sudo systemctl stop yb-bigProgram.service
-	                            sudo systemctl disable yb-bigProgram.service
-
-                            </code>
-                        </pre>
-                    </div>
-                    <h3>Close program temporarily:</h3>
-                    <div class="code-box">
-                        <pre class="line-numbers">
-                            <code class="language-bash">
-                                sh ~/Dofbot/kill_YahboomArm.sh
+                                bash ~/Desktop/readonly_examples/Dofbot/kill_YahboomArm.sh
                             </code>
                         </pre>
                     </div>
