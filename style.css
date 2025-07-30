@@ -336,6 +336,18 @@ footer {
     margin-bottom: 5rem;
 }
 
+.repository-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    height: 100%;
+}
+
+.repository-link .repository-box {
+    height: 100%;
+    transition: box-shadow 0.3s ease;
+}
+
 .repository-box {
     border: 1px solid #ccc;
     border-radius: var(--spacing2);
@@ -346,7 +358,7 @@ footer {
     grid-row: span 3;
 }
 
-.repository-box:hover {
+.repository-link .repository-box:hover {
     box-shadow: 0 0 30px 0px rgba(87, 175, 190, 0.918);
 }
 
